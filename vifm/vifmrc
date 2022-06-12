@@ -229,6 +229,7 @@ fileviewer {*.[1-8]},<text/troff> man ./%c | col -b
 
 " Images
 filextype {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+        \ feh,
         \ {View in sxiv}
         \ sxiv %f,
         \ {View in gpicview}
@@ -444,7 +445,8 @@ endif
 " Mappings for faster renaming
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
-nnoremap A cw
+" Custom tree command 
+nnoremap A :tree! depth=1<cr>
 
 " Open console in current directory
 nnoremap ,t :!xterm &<cr>

@@ -1,5 +1,6 @@
 local lsp_installer = require('nvim-lsp-installer')
 
+
 lsp_installer.on_server_ready(function(server)
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol
                                                                        .make_client_capabilities())
@@ -15,7 +16,20 @@ lsp_installer.on_server_ready(function(server)
         }
       }
 
+
     }, opts)
   end
+  if server.name == 'pyright' then
+        opts = vim.tbl_deep_extend("force", {
+            settings = {
+                python = {
+                    analysis = {
+                        extraPaths = {"/home/gavric/prog/projects/reddit2tiktok/alpha/classes"}
+                    }
+                }
+            }
+        }, opts)
+  end
+
   server:setup(opts)
 end)

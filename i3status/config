@@ -1,11 +1,11 @@
 
 general {
         output_format = "i3bar"
-        interval = 5
+        interval = 1 
         colors = true
 }
-#order += "cpu_usage"
-#order += "disk /"
+order += "cpu_usage"
+order += "disk /"
 #order += "load"
 order += "tztime local"  
 
